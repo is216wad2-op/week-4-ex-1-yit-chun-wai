@@ -18,7 +18,41 @@
 
         <script>
         
-            function validateForm() {
+            function validateForm(fname) {
+
+                var form = document.forms[fname];
+
+                var id = form["id"].value;
+                var age = form["age"].value;
+                var email = form["email"].value;
+                var pwd = form["password"].value;
+
+                var msg ="";
+
+                if (id.length >10){
+                    msg+="ID must not contain more than 10 characters\n";
+
+                }
+
+                if (age<10 || age >40){
+                    msg+="Age must be between 10 and 40\n";
+        
+                }
+
+                if (!email.includes("@")){
+                    msg+="Email must contain @\n"
+                }
+
+                if (msg!=""){
+                    alert(msg);
+                    return false;
+                } else {
+                    return true;
+                }
+
+
+
+
                 var x = document.getElementsByName("id");
                 console.log(x);
             }
